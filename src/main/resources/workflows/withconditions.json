@@ -1,0 +1,82 @@
+{
+  "Name": "ConditionWorkflow",
+  "Description": "A simple workflow",
+  "InitState": "T1",
+  "Async": false,
+  "ResultVariable": "output",
+  "States": {
+    "T1": {
+      "Type": "Task",
+      "Next": "T1Condition",
+      "End": false
+    },
+    "T1Condition": {
+      "Type": "Condition",
+      "End": false,
+      "Conditions": [
+        {
+          "Variable": "T1Status",
+          "MatchType": "StringEquals",
+          "MatchValue": "success",
+          "Next": "T2"
+        }
+      ]
+    },
+    "T2": {
+      "Type": "Task",
+      "Next": "T2Condition",
+      "End": false
+    },
+    "T2Condition": {
+      "Type": "Condition",
+      "End": false,
+      "Conditions": [
+        {
+          "Variable": "T2Status",
+          "MatchType": "StringEquals",
+          "MatchValue": "success",
+          "Next": "T3"
+        }
+      ]
+    },
+    "T3": {
+      "Type": "Task",
+      "Next": "T3Condition",
+      "End": false
+    },
+    "T3Condition": {
+      "Type": "Condition",
+      "End": false,
+      "Conditions": [
+        {
+          "Variable": "T3Status",
+          "MatchType": "StringEquals",
+          "MatchValue": "success",
+          "Next": "T4"
+        }
+      ]
+    },
+    "T4": {
+      "Type": "Task",
+      "Next": "T4Condition",
+      "End": false
+    },
+    "T4Condition": {
+      "Type": "Condition",
+      "End": false,
+      "Conditions": [
+        {
+          "Variable": "T4Status",
+          "MatchType": "StringEquals",
+          "MatchValue": "success",
+          "Next": "T5"
+        }
+      ]
+    },
+    "T5": {
+      "Type": "Task",
+      "Next": null,
+      "End": true
+    }
+  }
+}

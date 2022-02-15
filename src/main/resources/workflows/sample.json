@@ -1,0 +1,24 @@
+{
+  "Name": "SampleWorkflow",
+  "Description": "A simple workflow",
+  "InitState": "T1",
+  "Async": false,
+  "ResultVariable": "output",
+  "States": {
+    "T1": {
+      "Type": "Task",
+      "Next": "T2",
+      "End": false
+    },
+    "T2": {
+      "Type": "Task",
+      "Next": "T3",
+      "End": false
+    },
+    "T3": {
+      "Type": "Task",
+      "Next": "T3Condition",
+      "End": true
+    }
+  }
+}
